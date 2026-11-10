@@ -6,6 +6,8 @@
 
 后续部署要求已更新为容器启动：使用根目录deploy.sh从指定仓库main分支拉取，按多源策略构建，再通过Docker Compose启动。成功返回网站链接，失败返回日志目录及前30行日志。当前入口见[容器部署说明](../../deploy/docker/README.md)，原systemd模板仅保留作备用。真实容器构建启动尚待在可用Docker主机执行。
 
+部署与脚本启动目录按用户要求统一为 /home/wsgfai；服务器将脚本放为 /home/wsgfai/deploy.sh，版本源码、current链接及日志均保存在此目录下。
+
 ## 交付范围
 
 | 项目 | 内容 |

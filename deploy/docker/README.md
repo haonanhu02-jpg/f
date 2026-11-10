@@ -8,22 +8,25 @@
 
 需要Linux、Docker Engine及可用的Docker Compose v2插件，以及git、curl、python3、flock、timeout、tee等常见命令。建议至少2核、4GB内存和10GB可用空间，实际空间随附件与镜像增加。脚本检查已有依赖，不自动修改Docker全局配置或安装软件。
 
-将 deploy.sh 复制到服务器，再执行：
+将 deploy.sh 放到服务器 /home/wsgfai/deploy.sh，然后在此目录执行：
 
 ```bash
-sudo bash deploy.sh
+cd /home/wsgfai
+sudo bash /home/wsgfai/deploy.sh
 ```
 
 也可先从main分支下载脚本，检查内容后执行：
 
 ```bash
-curl --fail --location --output deploy.sh https://raw.githubusercontent.com/haonanhu02-jpg/f/main/deploy.sh
-sudo bash deploy.sh
+sudo mkdir -p /home/wsgfai
+cd /home/wsgfai
+sudo curl --fail --location --output deploy.sh https://raw.githubusercontent.com/haonanhu02-jpg/f/main/deploy.sh
+sudo bash /home/wsgfai/deploy.sh
 ```
 
 若服务器不能访问raw.githubusercontent.com，使用本地源码中的deploy.sh传到服务器即可；脚本自身拉取项目时会尝试配置的多个代码源。
 
-默认使用main分支，安装记录在 /opt/archive-ledger；对内网开放8080端口，自动选择服务器IP并输出 http://服务器IP:8080。无需在宿主机安装Node.js或npm。首次访问自行创建管理员账号，没有预置账号密码。公司防火墙需允许客户端访问指定端口。
+默认使用main分支，脚本自动切换到 /home/wsgfai 启动，拉取内容也放在此目录内。版本源码为 /home/wsgfai/releases/执行编号/source，当前成功版本为 /home/wsgfai/current/source，日志为 /home/wsgfai/logs/执行编号；对内网开放8080端口，自动选择服务器IP并输出 http://服务器IP:8080。无需在宿主机安装Node.js或npm。首次访问自行创建管理员账号，没有预置账号密码。公司防火墙需允许客户端访问指定端口。
 
 多网卡、指定域名或自定义端口时建议明确填写访问地址：
 
@@ -66,14 +69,14 @@ sudo env \
 部署成功
 网站链接：http://192.168.1.100:8080
 提交：本次实际40位提交SHA
-日志目录：/opt/archive-ledger/logs/本次执行编号
+日志目录：/home/wsgfai/logs/本次执行编号
 ```
 
 失败示例：
 
 ```text
 部署失败（退出码 1）
-失败日志目录：/opt/archive-ledger/logs/本次执行编号
+失败日志目录：/home/wsgfai/logs/本次执行编号
 前30行日志（failure.log）：
 失败阶段：构建镜像
 失败原因：使用全部npm镜像源构建后仍然失败。
@@ -93,7 +96,7 @@ sudo env \
 成功后 current 链接指向本次部署目录，后续查看日志、停启与备份可运行：
 
 ```bash
-cd /opt/archive-ledger/current
+cd /home/wsgfai/current
 sudo docker compose --project-name archive-ledger --env-file runtime.env -f source/deploy/docker/compose.yaml ps
 sudo docker compose --project-name archive-ledger --env-file runtime.env -f source/deploy/docker/compose.yaml logs --tail 100 app
 sudo docker compose --project-name archive-ledger --env-file runtime.env -f source/deploy/docker/compose.yaml exec -T app node scripts/maintenance.mjs backup
@@ -107,7 +110,7 @@ sudo docker compose --project-name archive-ledger --env-file runtime.env -f sour
 
 | 变量 | 默认值 | 作用 |
 | --- | --- | --- |
-| DEPLOY_DIR | /opt/archive-ledger | 代码版本与部署记录目录 |
+| DEPLOY_DIR | /home/wsgfai | 代码版本与部署记录目录 |
 | LOG_BASE | DEPLOY_DIR/logs | 日志位置，不可写时尝试临时目录 |
 | BRANCH | main | 拉取分支 |
 | REPO_URL | 指定GitHub仓库.git地址 | 原始代码源 |

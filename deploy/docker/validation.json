@@ -1,10 +1,12 @@
 {
   "date": "2026-11-10",
+  "deploymentRoot": "/home/wsgfai",
+  "startupDirectory": "deployment root; verified in mocked deployment tests",
   "bashSyntax": "passed in Ubuntu WSL",
   "composeConfiguration": "passed with Docker Compose v5.1.4",
   "linuxMockDeploymentTests": {"passed": 10, "failed": 0},
   "backendRegressionTests": {"passed": 38, "failed": 0},
   "sheetjsTarball": "SHA-512 matches the original backend lockfile",
-  "repository": {"url": "https://github.com/haonanhu02-jpg/f", "observedState": "empty; complete source must be uploaded before deployment"},
+  "repository": {"url": "https://github.com/haonanhu02-jpg/f", "observedState": "complete source published on main"},
   "actualContainerBuildAndStartup": "not run: local Docker daemon unavailable; target server not supplied"
 }

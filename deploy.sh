@@ -5,6 +5,7 @@ umask 077
 
 if [[ ${1:-} == --help ]]; then
   printf '%s\n' '用法：bash deploy.sh' \
+    '默认部署与启动目录：/home/wsgfai' \
     '可配置：DEPLOY_DIR BRANCH REPO_URL EXPECTED_COMMIT PUBLIC_URL HTTP_PORT BIND_IP' \
     '多源配置（空格分隔）：GIT_URLS NODE_IMAGES NPM_REGISTRIES' \
     '详情见 deploy/docker/README.md。需要Linux、Docker Compose、Git、curl、Python3、flock、timeout。'
@@ -12,7 +13,7 @@ if [[ ${1:-} == --help ]]; then
 fi
 
 RUN_ID="$(date -u +%Y%m%dT%H%M%SZ)-$$"
-DEPLOY_DIR=${DEPLOY_DIR:-/opt/archive-ledger}
+DEPLOY_DIR=${DEPLOY_DIR:-/home/wsgfai}
 LOG_BASE=${LOG_BASE:-$DEPLOY_DIR/logs}
 LOG_DIR="$LOG_BASE/$RUN_ID"
 if ! mkdir -p "$LOG_DIR"; then
@@ -89,6 +90,13 @@ for tool in git docker curl python3 flock timeout tee head; do
   command -v "$tool" >/dev/null || die "缺少依赖：$tool。请先安装后重试。"
 done
 
+DEPLOY_DIR=$(python3 -c 'import os,sys; print(os.path.abspath(sys.argv[1]))' "$DEPLOY_DIR")
+LOG_DIR=$(python3 -c 'import os,sys; print(os.path.abspath(sys.argv[1]))' "$LOG_DIR")
+[[ $DEPLOY_DIR != / ]] || die 'DEPLOY_DIR不能为根目录。'
+mkdir -p "$DEPLOY_DIR"
+cd "$DEPLOY_DIR"
+printf '部署和启动目录：%s\n' "$PWD"
+
 HTTP_PORT=${HTTP_PORT:-8080}
 BIND_IP=${BIND_IP:-0.0.0.0}
 BRANCH=${BRANCH:-main}
@@ -111,8 +119,6 @@ assert not commit or re.fullmatch('[a-fA-F0-9]{40}',commit),'EXPECTED_COMMIT须�
 assert all(n.isdigit() and int(n)>0 for n in numbers),'重试次数和超时必须为正整数'
 PY
 git check-ref-format --branch "$BRANCH" >/dev/null
-DEPLOY_DIR=$(python3 -c 'import os,sys; print(os.path.abspath(sys.argv[1]))' "$DEPLOY_DIR")
-[[ $DEPLOY_DIR != / ]] || die 'DEPLOY_DIR不能为根目录。'
 mkdir -p "$DEPLOY_DIR/releases"
 exec 9>"$DEPLOY_DIR/.deploy.lock"
 flock -n 9 || die '已有部署任务正在运行，请等待该任务结束。'

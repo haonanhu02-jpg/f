@@ -8,6 +8,7 @@ import json,os,shutil,sys
 from pathlib import Path
 name=Path(sys.argv[0]).name;a=sys.argv[1:];mode=os.environ.get('CASE','fallback')
 with open(os.environ['CALLS'],'a') as f:f.write(json.dumps([name,*a])+'\n')
+with open(os.environ['CALLS']+'.cwd','a') as f:f.write(json.dumps([name,str(Path.cwd())])+'\n')
 def bad(s):print(s,file=sys.stderr);sys.exit(7)
 if name=='git':
  if 'check-ref-format' in a:sys.exit(0)
@@ -89,6 +90,8 @@ class DeploymentTests(unittest.TestCase):
   self.assertEqual(sum(c[0]=='docker' and c[1]=='pull' for c in calls),2)
   self.assertEqual(sum(c[0]=='docker' and c[1]=='build' for c in calls),2)
   self.assertTrue((log.parent.parent/'current/runtime.env').exists())
+  directories=[json.loads(line)[1] for line in (log.parent.parent.parent/'calls.jsonl.cwd').read_text().splitlines()]
+  self.assertTrue(directories);self.assertEqual(set(directories),{str(log.parent.parent)})
 
  def test_empty_upstream_is_not_treated_as_success(self):
   result,data,log,calls=self.run_case('empty')

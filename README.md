@@ -39,10 +39,13 @@ npm run dev
 当前按用户要求采用Linux容器方式：项目根目录 [deploy.sh](deploy.sh) 从指定GitHub仓库拉取代码，依次尝试多个代码/基础镜像/npm源，构建并通过Docker Compose启动。成功输出网站链接；失败输出日志目录及前30行日志。执行方式和配置见[容器部署说明](deploy/docker/README.md)。main分支包含Dockerfile、部署脚本和vendor构建依赖。
 
 ```bash
-sudo bash deploy.sh
+sudo mkdir -p /home/wsgfai
+cd /home/wsgfai
+sudo curl -fL https://raw.githubusercontent.com/haonanhu02-jpg/f/main/deploy.sh -o deploy.sh
+sudo bash /home/wsgfai/deploy.sh
 ```
 
-默认开放内网8080端口并识别服务器IP，可通过 PUBLIC_URL、HTTP_PORT 调整。SQLite及附件保存在Docker命名卷，重复部署前先备份，更新不删除数据卷。当前已完成脚本验证，尚未在目标服务器完成真实容器启动。
+默认拉取与启动位置为 /home/wsgfai，脚本会自动切换到此目录。源码按版本保存在该目录的 releases/ 下，成功版本通过 current/source/ 访问，日志在 logs/ 下。默认开放内网8080端口并识别服务器IP，可通过 PUBLIC_URL、HTTP_PORT 调整。SQLite及附件保存在Docker命名卷，重复部署前先备份，更新不删除数据卷。当前已完成脚本验证，尚未在目标服务器完成真实容器启动。
 
 目标为Linux公司内网服务器、多人访问。交付内容见[第六阶段清单](docs/phase-6/README.md)。原[systemd部署说明](deploy/linux/README.md)作为备用方案保留，不与容器应用同时启用。delivery/ 中的既有1.0.0运行包面向原Node宿主机部署；本次容器源码包另行提供，不含工作数据及默认账号密码。
 
