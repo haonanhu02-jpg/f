@@ -1,0 +1,476 @@
+[
+  {
+    "code": "01",
+    "source_name": "基建类",
+    "name": "基建类",
+    "source_star_mark": false,
+    "source": "G5:G6",
+    "children": [
+      {
+        "code": "01",
+        "name": "建设工程规划许可证",
+        "source": "G7:G8",
+        "children": []
+      },
+      {
+        "code": "02",
+        "name": "国有土地使用证",
+        "source": "H7:H8",
+        "children": []
+      },
+      {
+        "code": "03",
+        "name": "建筑工程施工许可证",
+        "source": "I7:I8",
+        "children": []
+      },
+      {
+        "code": "04",
+        "name": "房屋所有权证",
+        "source": "J7:J8",
+        "children": []
+      },
+      {
+        "code": "05",
+        "name": "平面图",
+        "source": "K7:K8",
+        "children": []
+      },
+      {
+        "code": "06",
+        "name": "公证书",
+        "source": "L7:L8",
+        "children": []
+      },
+      {
+        "code": "07",
+        "name": "土地相关资料",
+        "source": "M7:M8",
+        "children": []
+      },
+      {
+        "code": "08",
+        "name": "房产相关资料",
+        "source": "N7:N8",
+        "children": []
+      },
+      {
+        "code": "09",
+        "name": "不动产权证书",
+        "source": "O7:O8",
+        "children": []
+      }
+    ],
+    "numbering_hint": null,
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  },
+  {
+    "code": "02",
+    "source_name": "设备设施类",
+    "name": "设备设施类",
+    "source_star_mark": false,
+    "source": "P5:P6",
+    "children": [],
+    "numbering_hint": {
+      "source_code": "XXX",
+      "source_description": "三位流水号",
+      "source": "P7:P8"
+    },
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  },
+  {
+    "code": "03",
+    "source_name": "工商类",
+    "name": "工商类",
+    "source_star_mark": false,
+    "source": "Q5:Q6",
+    "children": [
+      {
+        "code": "01",
+        "name": "证明",
+        "source": "Q7:Q8",
+        "children": []
+      },
+      {
+        "code": "02",
+        "name": "基本情况、变更登记情况、章程及历次工商变更资料",
+        "source": "R7:R8",
+        "children": []
+      },
+      {
+        "code": "03",
+        "name": "资质证书历史版本",
+        "source": "S7:S8",
+        "children": []
+      }
+    ],
+    "numbering_hint": null,
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  },
+  {
+    "code": "04",
+    "source_name": "技术类",
+    "name": "技术类",
+    "source_star_mark": false,
+    "source": "T5:T6",
+    "children": [],
+    "numbering_hint": {
+      "source_code": "20XX",
+      "source_description": "年份流水号",
+      "source": "T7:T8"
+    },
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  },
+  {
+    "code": "05",
+    "source_name": "安全环保能源类",
+    "name": "安全环保能源类",
+    "source_star_mark": false,
+    "source": "U5:U6",
+    "children": [
+      {
+        "code": "01",
+        "name": "检测报告",
+        "source": "U7:U8",
+        "children": []
+      },
+      {
+        "code": "02",
+        "name": "环境影响报告",
+        "source": "V7:V8",
+        "children": []
+      }
+    ],
+    "numbering_hint": null,
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  },
+  {
+    "code": "06",
+    "source_name": "财务类",
+    "name": "财务类",
+    "source_star_mark": false,
+    "source": "W5:W6",
+    "children": [
+      {
+        "code": "01",
+        "name": "验资报告",
+        "source": "W7:W8",
+        "children": []
+      },
+      {
+        "code": "02",
+        "name": "其他财务相关资料",
+        "source": "X7:X8",
+        "children": []
+      },
+      {
+        "code": "03",
+        "name": "审计报告（审计报告及财务报表）",
+        "source": "Y7:Y8",
+        "children": []
+      },
+      {
+        "code": "04",
+        "name": "政府补助",
+        "source": "Z7:Z8",
+        "children": []
+      },
+      {
+        "code": "05",
+        "name": "其他财务报告（专项审计报告、审核报告、鉴证报告）",
+        "source": "AA7:AA8",
+        "children": []
+      }
+    ],
+    "numbering_hint": null,
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  },
+  {
+    "code": "07",
+    "source_name": "营销类",
+    "name": "营销类",
+    "source_star_mark": false,
+    "source": "AB5:AB6",
+    "children": [
+      {
+        "code": "01",
+        "name": "报告",
+        "source": "AB7:AB8",
+        "children": []
+      }
+    ],
+    "numbering_hint": null,
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  },
+  {
+    "code": "08",
+    "source_name": "制度类",
+    "name": "制度类",
+    "source_star_mark": false,
+    "source": "AC5:AC6",
+    "children": [],
+    "numbering_hint": null,
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  },
+  {
+    "code": "09",
+    "source_name": "高管私人类",
+    "name": "高管私人类",
+    "source_star_mark": false,
+    "source": "AD5:AD6",
+    "children": [
+      {
+        "code": "01",
+        "name": "高献国",
+        "source": "AD7:AD8",
+        "children": [
+          {
+            "code": "01",
+            "name": "证件",
+            "source": "AD9:AD10"
+          },
+          {
+            "code": "02",
+            "name": "借贷纠纷资料",
+            "source": "AE9:AE10"
+          }
+        ]
+      },
+      {
+        "code": "02",
+        "name": "周三昌",
+        "source": "AF7:AF8",
+        "children": []
+      },
+      {
+        "code": "03",
+        "name": "高峰",
+        "source": "AG7:AG8",
+        "children": []
+      }
+    ],
+    "numbering_hint": null,
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  },
+  {
+    "code": "10",
+    "source_name": "客商类",
+    "name": "客商类",
+    "source_star_mark": false,
+    "source": "AH5:AH6",
+    "children": [
+      {
+        "code": "01",
+        "name": "办公家具",
+        "source": "AH7:AH8",
+        "children": []
+      }
+    ],
+    "numbering_hint": null,
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  },
+  {
+    "code": "11",
+    "source_name": "法务类",
+    "name": "法务类",
+    "source_star_mark": false,
+    "source": "AI5:AI6",
+    "children": [],
+    "numbering_hint": {
+      "source_code": "XXX",
+      "source_description": "三位流水号",
+      "source": "AI7:AI8"
+    },
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  },
+  {
+    "code": "12",
+    "source_name": "企业文化类",
+    "name": "企业文化类",
+    "source_star_mark": false,
+    "source": "AJ5:AJ6",
+    "children": [
+      {
+        "code": "01",
+        "name": "企宣类",
+        "source": "AJ7:AJ8",
+        "children": []
+      }
+    ],
+    "numbering_hint": null,
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  },
+  {
+    "code": "13",
+    "source_name": "申报类",
+    "name": "申报类",
+    "source_star_mark": false,
+    "source": "AK5:AK6",
+    "children": [
+      {
+        "code": "01",
+        "name": "评审报告",
+        "source": "AK7:AK8",
+        "children": []
+      }
+    ],
+    "numbering_hint": null,
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  },
+  {
+    "code": "15",
+    "source_name": "移动电信类",
+    "name": "移动电信类",
+    "source_star_mark": false,
+    "source": "AL5:AL6",
+    "children": [
+      {
+        "code": "01",
+        "name": "视频监控类",
+        "source": "AL7:AL8",
+        "children": []
+      }
+    ],
+    "numbering_hint": null,
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  },
+  {
+    "code": "16",
+    "source_name": "计划总结类",
+    "name": "计划总结类",
+    "source_star_mark": false,
+    "source": "AM5:AM6",
+    "children": [
+      {
+        "code": "01",
+        "name": "企管中心",
+        "source": "AM7:AM8",
+        "children": []
+      }
+    ],
+    "numbering_hint": null,
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  },
+  {
+    "code": "17",
+    "source_name": "产品标准类",
+    "name": "产品标准类",
+    "source_star_mark": false,
+    "source": "AN5:AN6",
+    "children": [],
+    "numbering_hint": {
+      "source_code": "XXX",
+      "source_description": "三位流水号",
+      "source": "AN7:AN8"
+    },
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  },
+  {
+    "code": "18",
+    "source_name": "专利类*",
+    "name": "专利类",
+    "source_star_mark": true,
+    "source": "AO5:AO6",
+    "children": [],
+    "numbering_hint": {
+      "source_code": "XXX",
+      "source_description": "三位流水号",
+      "source": "AO7:AO8"
+    },
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  },
+  {
+    "code": "19",
+    "source_name": "商标类*",
+    "name": "商标类",
+    "source_star_mark": true,
+    "source": "AP5:AP6",
+    "children": [],
+    "numbering_hint": null,
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  },
+  {
+    "code": "20",
+    "source_name": "合同类*",
+    "name": "合同类",
+    "source_star_mark": true,
+    "source": "AQ5:AQ6",
+    "children": [],
+    "numbering_hint": {
+      "source_code": "20XX",
+      "source_description": "年份流水号",
+      "source": "AQ7:AQ8"
+    },
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  },
+  {
+    "code": "21",
+    "source_name": "资质证书类*",
+    "name": "资质证书类",
+    "source_star_mark": true,
+    "source": "AR5:AR6",
+    "children": [],
+    "numbering_hint": {
+      "source_code": "XXX",
+      "source_description": "三位流水号",
+      "source": "AR7:AR8"
+    },
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  },
+  {
+    "code": "22",
+    "source_name": "会议纪要类*",
+    "name": "会议纪要类",
+    "source_star_mark": true,
+    "source": "AS5:AS6",
+    "children": [],
+    "numbering_hint": {
+      "source_code": "XXX",
+      "source_description": "三位流水号",
+      "source": "AS7:AS8"
+    },
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  },
+  {
+    "code": "23",
+    "source_name": "收文类*",
+    "name": "收文类",
+    "source_star_mark": true,
+    "source": "AT5:AT6",
+    "children": [],
+    "numbering_hint": {
+      "source_code": "20XX",
+      "source_description": "年份流水号",
+      "source": "AT7:AT8"
+    },
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  },
+  {
+    "code": "24",
+    "source_name": "发文类*",
+    "name": "发文类",
+    "source_star_mark": true,
+    "source": "AU5:AU6",
+    "children": [],
+    "numbering_hint": {
+      "source_code": "20XX",
+      "source_description": "年份流水号",
+      "source": "AU7:AU8"
+    },
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  },
+  {
+    "code": "25",
+    "source_name": "项目类*",
+    "name": "项目类",
+    "source_star_mark": true,
+    "source": "AV5:AV6",
+    "children": [],
+    "numbering_hint": {
+      "source_code": "XXX",
+      "source_description": "三位流水号",
+      "source": "AV7:AV8"
+    },
+    "scope_status": "原目录表头为浙江万盛股份有限公司，其他公司适用范围待确认"
+  }
+]

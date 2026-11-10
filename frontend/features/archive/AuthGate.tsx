@@ -1,0 +1,13 @@
+'use client';
+import { useEffect,useState } from 'react';
+import { Archive,LogIn } from 'lucide-react';
+import { securityRepository } from './repository';
+import ArchiveApp from './ArchiveApp';
+export default function AuthGate(){
+  const [status,setStatus]=useState<'loading'|'setup'|'login'|'ready'>('loading'),[username,setUsername]=useState(''),[displayName,setDisplayName]=useState(''),[password,setPassword]=useState(''),[confirmation,setConfirmation]=useState(''),[error,setError]=useState(''),[busy,setBusy]=useState(false);
+  useEffect(()=>{const load=()=>{setStatus('loading');setPassword('');securityRepository.session().then(s=>setStatus(s.user?'ready':s.setupRequired?'setup':'login')).catch(e=>{setError(e.message);setStatus('login');});};load();window.addEventListener('archive:session-expired',load);return()=>window.removeEventListener('archive:session-expired',load);},[]);
+  if(status==='ready')return <ArchiveApp/>;
+  if(status==='loading')return <div className="startup" role="status"><Archive size={30}/><h1>正在读取登录状态…</h1></div>;
+  const setup=status==='setup';
+  return <main className="login-page"><form className="login-panel" onSubmit={async e=>{e.preventDefault();if(setup&&password!==confirmation)return setError('两次密码不一致。');setBusy(true);setError('');try{await securityRepository.login({username,password,...(setup?{displayName}:{})},setup);setPassword('');setConfirmation('');setStatus('ready');}catch(e){setError((e as Error).message);}finally{setBusy(false);}}}><span className="brand-mark"><Archive size={27}/></span><div className="eyebrow">万盛 · 档案台账管理系统</div><h1>{setup?'创建首位管理员':'登录档案系统'}</h1><p>{setup?'系统尚未设置账号。请自行创建管理员和密码，原有档案资料继续保留。':'使用管理员分配的账号，访问授权范围内的档案。'}</p>{error&&<div className="notice danger" role="alert">{error}</div>}<label className="field"><span>账号</span><input autoComplete="username" required minLength={3} maxLength={50} value={username} onChange={e=>setUsername(e.target.value)} placeholder="字母开头的账号"/></label>{setup&&<label className="field"><span>姓名</span><input autoComplete="name" required maxLength={100} value={displayName} onChange={e=>setDisplayName(e.target.value)}/></label>}<label className="field"><span>密码</span><input aria-label="密码" type="password" autoComplete={setup?'new-password':'current-password'} required minLength={setup?10:undefined} maxLength={128} value={password} onChange={e=>setPassword(e.target.value)}/>{setup&&<small>至少10位；系统不提供默认密码。</small>}</label>{setup&&<label className="field"><span>再次输入密码</span><input type="password" autoComplete="new-password" required value={confirmation} onChange={e=>setConfirmation(e.target.value)}/></label>}<button className="button primary" disabled={busy}><LogIn size={16}/>{busy?'处理中…':setup?'创建管理员并登录':'登录'}</button></form></main>;
+}

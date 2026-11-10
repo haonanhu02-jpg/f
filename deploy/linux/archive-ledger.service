@@ -1,0 +1,27 @@
+[Unit]
+Description=Archive Ledger Application
+After=network.target
+
+[Service]
+Type=simple
+User=archive-ledger
+Group=archive-ledger
+WorkingDirectory=/opt/archive-ledger/current/backend
+EnvironmentFile=/etc/archive-ledger.env
+ExecStart=/usr/bin/node src/server.mjs
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=75
+UMask=0077
+StateDirectory=archive-ledger
+StateDirectoryMode=0700
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/archive-ledger
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,13 @@
+import { mkdirSync, writeFileSync } from 'node:fs';
+import path from 'node:path';
+import * as XLSX from 'xlsx';
+import { COLUMNS } from '../src/excel.mjs';
+const destination=path.resolve(process.argv[2]);mkdirSync(destination,{recursive:true});
+const first={title:'第四阶段验收证照',certificateNumber:'00123',originalCount:0,scanCount:3,companyCode:'GF',group:'资质类（含证书）',validityMode:'长期有效',retentionMode:'长期保存',issuedOn:new Date('2026-11-09T00:00:00Z')};
+const rows=[first,{...first},{...first,title:'错误公司',companyCode:'NOT-FOUND'},{title:'第四阶段年份合同',companyCode:'GF',group:'文书档案类',categoryPath:'20',numberingYear:'2026'}];
+const book=XLSX.utils.book_new();XLSX.utils.book_append_sheet(book,XLSX.utils.aoa_to_sheet([COLUMNS.map(c=>c[1]),...rows.map(r=>COLUMNS.map(([key])=>r[key]??null))]),'档案导入');writeFileSync(path.join(destination,'mixed.xlsx'),XLSX.write(book,{bookType:'xlsx',type:'buffer'}));
+const objects=['<</Type /Catalog /Pages 2 0 R>>','<</Type /Pages /Kids [3 0 R] /Count 1>>','<</Type /Page /Parent 2 0 R /MediaBox [0 0 420 300] /Resources <</Font <</F1 4 0 R>>>> /Contents 5 0 R>>','<</Type /Font /Subtype /Type1 /BaseFont /Helvetica>>'];
+const stream='BT /F1 20 Tf 40 220 Td (Archive attachment preview) Tj ET';objects.push(`<< /Length ${Buffer.byteLength(stream)} >>\nstream\n${stream}\nendstream`);
+let pdf='%PDF-1.4\n';const offsets=[0];objects.forEach((o,i)=>{offsets.push(Buffer.byteLength(pdf));pdf+=`${i+1} 0 obj\n${o}\nendobj\n`;});const xref=Buffer.byteLength(pdf);pdf+=`xref\n0 ${objects.length+1}\n0000000000 65535 f \n`+offsets.slice(1).map(n=>`${String(n).padStart(10,'0')} 00000 n \n`).join('')+`trailer\n<< /Size ${objects.length+1} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF\n`;writeFileSync(path.join(destination,'preview.pdf'),pdf);
+writeFileSync(path.join(destination,'scan.png'),Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jJ1sAAAAASUVORK5CYII=','base64'));
+console.log('Isolated phase4 fixtures ready.');

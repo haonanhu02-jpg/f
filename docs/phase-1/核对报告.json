@@ -1,0 +1,44 @@
+{
+  "company_count": 33,
+  "existing_company_code_count": 30,
+  "missing_company_codes": [
+    "Wansheng Material Science (USA) CO., LTD（万盛材料科技(美国)有限公司）",
+    "WANSHENG EUROPE (UK) LIMITED（英国万盛）",
+    "济宁汉峰国际贸易有限公司"
+  ],
+  "company_codes_unique": true,
+  "second_level_category_count": 24,
+  "second_level_codes_unique": true,
+  "unprovided_category_codes": [
+    "14"
+  ],
+  "fixed_third_level_node_count": 28,
+  "fourth_level_node_count": 2,
+  "sequence_only_category_codes": [
+    "02",
+    "11",
+    "17",
+    "18",
+    "21",
+    "22",
+    "25"
+  ],
+  "year_sequence_category_codes": [
+    "04",
+    "20",
+    "23",
+    "24"
+  ],
+  "categories_without_children_or_numbering_hint": [
+    "08",
+    "19"
+  ],
+  "source_company_sequence_issues": "A8、A9均为5；未见6；末3家公司序号空白。保留原始值，不作为系统主键。",
+  "source_short_name_issue": "B6为上海鑫鸿盛新材料有限公司，D6为上海新鸿盛；未自动改字。",
+  "supplemental_reference": {
+    "cell": "AQ11:AR11",
+    "text": "RF/SD-XZ-011（01）",
+    "meaning": "合并单元格中的独立文本，具体用途待确认，不并入编号模板。"
+  },
+  "source_hash_matches": true
+}

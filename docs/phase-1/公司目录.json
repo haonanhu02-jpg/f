@@ -1,0 +1,266 @@
+[
+  {
+    "source_row": 4,
+    "source_sequence": "1",
+    "name": "浙江万盛股份有限公司",
+    "code": "GF",
+    "short_name": "股份",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 5,
+    "source_sequence": "2",
+    "name": "浙江万盛科技有限公司",
+    "code": "KJ",
+    "short_name": "科技",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 6,
+    "source_sequence": "3",
+    "name": "上海鑫鸿盛新材料有限公司",
+    "code": "SHXHS",
+    "short_name": "上海新鸿盛",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 7,
+    "source_sequence": "4",
+    "name": "浙江万盛股份有限公司上海分公司",
+    "code": "SHFGS",
+    "short_name": "股份上海分公司",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 8,
+    "source_sequence": "5",
+    "name": "山东万盛新材料有限公司",
+    "code": "SDWS",
+    "short_name": "山东万盛",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 9,
+    "source_sequence": "5",
+    "name": "山东汉峰新材料科技有限公司",
+    "code": "SDHF",
+    "short_name": "山东汉峰",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 10,
+    "source_sequence": "7",
+    "name": "浙江神盛新材料有限公司",
+    "code": "SS",
+    "short_name": "浙江神盛",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 11,
+    "source_sequence": "8",
+    "name": "临海市盛维企业管理合伙企业(有限合伙)",
+    "code": "SW",
+    "short_name": "临海市盛维",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 12,
+    "source_sequence": "9",
+    "name": "临海复星万盛新材料股权投资基金合伙企业（有限合伙）",
+    "code": "FXWS",
+    "short_name": "临海复星万盛",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 13,
+    "source_sequence": "10",
+    "name": "VANDONSUN CHEMICAL INTERNATIONAL LIMITED",
+    "code": "VANDONSUN",
+    "short_name": "VANDONSUN",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 14,
+    "source_sequence": "11",
+    "name": "福建中州新材料科技有限公司",
+    "code": "FJZZ",
+    "short_name": "福建中州",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 15,
+    "source_sequence": "12",
+    "name": "河南洛升企业管理咨询合伙企业（有限合伙）",
+    "code": "HNLS",
+    "short_name": "河南洛升",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 16,
+    "source_sequence": "13",
+    "name": "江南助剂厂",
+    "code": "JNZJ",
+    "short_name": "江南助剂",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 17,
+    "source_sequence": "14",
+    "name": "江苏万盛大伟化学有限公司",
+    "code": "WSDW",
+    "short_name": "万盛大伟",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 18,
+    "source_sequence": "15",
+    "name": "张家港市大伟助剂有限公司",
+    "code": "DWZJ",
+    "short_name": "大伟助剂",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 19,
+    "source_sequence": "16",
+    "name": "Wansheng Europe B.V.（万盛欧洲有限公司）",
+    "code": "OZWS",
+    "short_name": "欧洲万盛",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 20,
+    "source_sequence": "17",
+    "name": "上海德伊盛化学科技有限公司",
+    "code": "YDS",
+    "short_name": "上海德伊盛",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 21,
+    "source_sequence": "18",
+    "name": "昇显微电子（苏州）有限公司",
+    "code": "SXW",
+    "short_name": "昇显微",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 22,
+    "source_sequence": "19",
+    "name": "浙江万盛化工有限公司",
+    "code": "HG",
+    "short_name": "化工",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 23,
+    "source_sequence": "20",
+    "name": "临海市万盛投资有限公司",
+    "code": "TZ",
+    "short_name": "投资",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 24,
+    "source_sequence": "21",
+    "name": "WANSHENG CHEMICAL (HONG KONG) CO., LIMITED（万盛股份（香港）有限公司）",
+    "code": "XGWS",
+    "short_name": "香港万盛",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 25,
+    "source_sequence": "22",
+    "name": "临海市盛诺企业管理咨询有限公司",
+    "code": "SN",
+    "short_name": "临海市盛诺",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 26,
+    "source_sequence": "23",
+    "name": "北京鸿盛启成企业管理咨询合伙企业（有限合伙）",
+    "code": "BJHS",
+    "short_name": "北京鸿盛",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 27,
+    "source_sequence": "24",
+    "name": "浙江盛曜贸易有限公司",
+    "code": "ZJSY",
+    "short_name": "浙江盛曜",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 28,
+    "source_sequence": "25",
+    "name": "深圳盛锐生物科技有限公司",
+    "code": "SZSR",
+    "short_name": "深圳盛锐",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 29,
+    "source_sequence": "26",
+    "name": "ZHEJIANG WANSHENG MEXICO S. de R. L. de C.V.（浙江万盛墨西哥）",
+    "code": "MXGWS",
+    "short_name": "浙江万盛墨西哥",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 30,
+    "source_sequence": "27",
+    "name": "临海市洛升企业管理咨询合伙企业(有限合伙)",
+    "code": "LHLS",
+    "short_name": "临海洛升",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 31,
+    "source_sequence": "28",
+    "name": "广州熵能创新材料股份有限公司",
+    "code": "GZSN",
+    "short_name": "广州熵能",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 32,
+    "source_sequence": "29",
+    "name": "WANSHENG MATERIAL PTE. LTD.（新加坡万盛）",
+    "code": "XJPWS",
+    "short_name": "新加坡万盛",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 33,
+    "source_sequence": "30",
+    "name": "WANSHENG INTERNATIONAL（泰国万盛）",
+    "code": "TGWS",
+    "short_name": "泰国万盛",
+    "status": "原表已有编码"
+  },
+  {
+    "source_row": 34,
+    "source_sequence": null,
+    "name": "Wansheng Material Science (USA) CO., LTD（万盛材料科技(美国)有限公司）",
+    "code": null,
+    "short_name": null,
+    "status": "待补编码和简称"
+  },
+  {
+    "source_row": 35,
+    "source_sequence": null,
+    "name": "WANSHENG EUROPE (UK) LIMITED（英国万盛）",
+    "code": null,
+    "short_name": null,
+    "status": "待补编码和简称"
+  },
+  {
+    "source_row": 36,
+    "source_sequence": null,
+    "name": "济宁汉峰国际贸易有限公司",
+    "code": null,
+    "short_name": null,
+    "status": "待补编码和简称"
+  }
+]

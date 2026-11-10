@@ -1,0 +1,18 @@
+[Unit]
+Description=Verified Archive Ledger SQLite Backup
+After=archive-ledger.service
+
+[Service]
+Type=oneshot
+User=archive-ledger
+Group=archive-ledger
+WorkingDirectory=/opt/archive-ledger/current/backend
+EnvironmentFile=/etc/archive-ledger.env
+ExecStart=/usr/bin/node scripts/maintenance.mjs backup
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/archive-ledger /var/backups/archive-ledger
+TimeoutStartSec=3600

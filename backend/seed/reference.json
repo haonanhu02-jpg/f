@@ -1,0 +1,771 @@
+{
+  "version": 1,
+  "companies": [
+    {
+      "id": "company-4",
+      "name": "浙江万盛股份有限公司",
+      "code": "GF",
+      "shortName": "股份",
+      "enabled": true,
+      "categoryEnabled": true
+    },
+    {
+      "id": "company-5",
+      "name": "浙江万盛科技有限公司",
+      "code": "KJ",
+      "shortName": "科技",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-6",
+      "name": "上海鑫鸿盛新材料有限公司",
+      "code": "SHXHS",
+      "shortName": "上海新鸿盛",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-7",
+      "name": "浙江万盛股份有限公司上海分公司",
+      "code": "SHFGS",
+      "shortName": "股份上海分公司",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-8",
+      "name": "山东万盛新材料有限公司",
+      "code": "SDWS",
+      "shortName": "山东万盛",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-9",
+      "name": "山东汉峰新材料科技有限公司",
+      "code": "SDHF",
+      "shortName": "山东汉峰",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-10",
+      "name": "浙江神盛新材料有限公司",
+      "code": "SS",
+      "shortName": "浙江神盛",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-11",
+      "name": "临海市盛维企业管理合伙企业(有限合伙)",
+      "code": "SW",
+      "shortName": "临海市盛维",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-12",
+      "name": "临海复星万盛新材料股权投资基金合伙企业（有限合伙）",
+      "code": "FXWS",
+      "shortName": "临海复星万盛",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-13",
+      "name": "VANDONSUN CHEMICAL INTERNATIONAL LIMITED",
+      "code": "VANDONSUN",
+      "shortName": "VANDONSUN",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-14",
+      "name": "福建中州新材料科技有限公司",
+      "code": "FJZZ",
+      "shortName": "福建中州",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-15",
+      "name": "河南洛升企业管理咨询合伙企业（有限合伙）",
+      "code": "HNLS",
+      "shortName": "河南洛升",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-16",
+      "name": "江南助剂厂",
+      "code": "JNZJ",
+      "shortName": "江南助剂",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-17",
+      "name": "江苏万盛大伟化学有限公司",
+      "code": "WSDW",
+      "shortName": "万盛大伟",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-18",
+      "name": "张家港市大伟助剂有限公司",
+      "code": "DWZJ",
+      "shortName": "大伟助剂",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-19",
+      "name": "Wansheng Europe B.V.（万盛欧洲有限公司）",
+      "code": "OZWS",
+      "shortName": "欧洲万盛",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-20",
+      "name": "上海德伊盛化学科技有限公司",
+      "code": "YDS",
+      "shortName": "上海德伊盛",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-21",
+      "name": "昇显微电子（苏州）有限公司",
+      "code": "SXW",
+      "shortName": "昇显微",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-22",
+      "name": "浙江万盛化工有限公司",
+      "code": "HG",
+      "shortName": "化工",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-23",
+      "name": "临海市万盛投资有限公司",
+      "code": "TZ",
+      "shortName": "投资",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-24",
+      "name": "WANSHENG CHEMICAL (HONG KONG) CO., LIMITED（万盛股份（香港）有限公司）",
+      "code": "XGWS",
+      "shortName": "香港万盛",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-25",
+      "name": "临海市盛诺企业管理咨询有限公司",
+      "code": "SN",
+      "shortName": "临海市盛诺",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-26",
+      "name": "北京鸿盛启成企业管理咨询合伙企业（有限合伙）",
+      "code": "BJHS",
+      "shortName": "北京鸿盛",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-27",
+      "name": "浙江盛曜贸易有限公司",
+      "code": "ZJSY",
+      "shortName": "浙江盛曜",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-28",
+      "name": "深圳盛锐生物科技有限公司",
+      "code": "SZSR",
+      "shortName": "深圳盛锐",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-29",
+      "name": "ZHEJIANG WANSHENG MEXICO S. de R. L. de C.V.（浙江万盛墨西哥）",
+      "code": "MXGWS",
+      "shortName": "浙江万盛墨西哥",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-30",
+      "name": "临海市洛升企业管理咨询合伙企业(有限合伙)",
+      "code": "LHLS",
+      "shortName": "临海洛升",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-31",
+      "name": "广州熵能创新材料股份有限公司",
+      "code": "GZSN",
+      "shortName": "广州熵能",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-32",
+      "name": "WANSHENG MATERIAL PTE. LTD.（新加坡万盛）",
+      "code": "XJPWS",
+      "shortName": "新加坡万盛",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-33",
+      "name": "WANSHENG INTERNATIONAL（泰国万盛）",
+      "code": "TGWS",
+      "shortName": "泰国万盛",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-34",
+      "name": "Wansheng Material Science (USA) CO., LTD（万盛材料科技(美国)有限公司）",
+      "code": null,
+      "shortName": "",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-35",
+      "name": "WANSHENG EUROPE (UK) LIMITED（英国万盛）",
+      "code": null,
+      "shortName": "",
+      "enabled": true,
+      "categoryEnabled": false
+    },
+    {
+      "id": "company-36",
+      "name": "济宁汉峰国际贸易有限公司",
+      "code": null,
+      "shortName": "",
+      "enabled": true,
+      "categoryEnabled": false
+    }
+  ],
+  "departments": [],
+  "categories": [
+    {
+      "id": "cat-01",
+      "code": "01",
+      "name": "基建类",
+      "source": "G5:G6",
+      "enabled": true,
+      "mode": "continuous",
+      "children": [
+        {
+          "id": "cat-01-01",
+          "code": "01",
+          "name": "建设工程规划许可证",
+          "source": "G7:G8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        },
+        {
+          "id": "cat-01-02",
+          "code": "02",
+          "name": "国有土地使用证",
+          "source": "H7:H8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        },
+        {
+          "id": "cat-01-03",
+          "code": "03",
+          "name": "建筑工程施工许可证",
+          "source": "I7:I8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        },
+        {
+          "id": "cat-01-04",
+          "code": "04",
+          "name": "房屋所有权证",
+          "source": "J7:J8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        },
+        {
+          "id": "cat-01-05",
+          "code": "05",
+          "name": "平面图",
+          "source": "K7:K8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        },
+        {
+          "id": "cat-01-06",
+          "code": "06",
+          "name": "公证书",
+          "source": "L7:L8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        },
+        {
+          "id": "cat-01-07",
+          "code": "07",
+          "name": "土地相关资料",
+          "source": "M7:M8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        },
+        {
+          "id": "cat-01-08",
+          "code": "08",
+          "name": "房产相关资料",
+          "source": "N7:N8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        },
+        {
+          "id": "cat-01-09",
+          "code": "09",
+          "name": "不动产权证书",
+          "source": "O7:O8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "cat-02",
+      "code": "02",
+      "name": "设备设施类",
+      "source": "P5:P6",
+      "enabled": true,
+      "mode": "continuous",
+      "children": []
+    },
+    {
+      "id": "cat-03",
+      "code": "03",
+      "name": "工商类",
+      "source": "Q5:Q6",
+      "enabled": true,
+      "mode": "continuous",
+      "children": [
+        {
+          "id": "cat-03-01",
+          "code": "01",
+          "name": "证明",
+          "source": "Q7:Q8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        },
+        {
+          "id": "cat-03-02",
+          "code": "02",
+          "name": "基本情况、变更登记情况、章程及历次工商变更资料",
+          "source": "R7:R8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        },
+        {
+          "id": "cat-03-03",
+          "code": "03",
+          "name": "资质证书历史版本",
+          "source": "S7:S8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "cat-04",
+      "code": "04",
+      "name": "技术类",
+      "source": "T5:T6",
+      "enabled": true,
+      "mode": "year",
+      "children": []
+    },
+    {
+      "id": "cat-05",
+      "code": "05",
+      "name": "安全环保能源类",
+      "source": "U5:U6",
+      "enabled": true,
+      "mode": "continuous",
+      "children": [
+        {
+          "id": "cat-05-01",
+          "code": "01",
+          "name": "检测报告",
+          "source": "U7:U8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        },
+        {
+          "id": "cat-05-02",
+          "code": "02",
+          "name": "环境影响报告",
+          "source": "V7:V8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "cat-06",
+      "code": "06",
+      "name": "财务类",
+      "source": "W5:W6",
+      "enabled": true,
+      "mode": "continuous",
+      "children": [
+        {
+          "id": "cat-06-01",
+          "code": "01",
+          "name": "验资报告",
+          "source": "W7:W8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        },
+        {
+          "id": "cat-06-02",
+          "code": "02",
+          "name": "其他财务相关资料",
+          "source": "X7:X8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        },
+        {
+          "id": "cat-06-03",
+          "code": "03",
+          "name": "审计报告（审计报告及财务报表）",
+          "source": "Y7:Y8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        },
+        {
+          "id": "cat-06-04",
+          "code": "04",
+          "name": "政府补助",
+          "source": "Z7:Z8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        },
+        {
+          "id": "cat-06-05",
+          "code": "05",
+          "name": "其他财务报告（专项审计报告、审核报告、鉴证报告）",
+          "source": "AA7:AA8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "cat-07",
+      "code": "07",
+      "name": "营销类",
+      "source": "AB5:AB6",
+      "enabled": true,
+      "mode": "continuous",
+      "children": [
+        {
+          "id": "cat-07-01",
+          "code": "01",
+          "name": "报告",
+          "source": "AB7:AB8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "cat-08",
+      "code": "08",
+      "name": "制度类",
+      "source": "AC5:AC6",
+      "enabled": true,
+      "mode": "unresolved",
+      "children": []
+    },
+    {
+      "id": "cat-09",
+      "code": "09",
+      "name": "高管私人类",
+      "source": "AD5:AD6",
+      "enabled": true,
+      "mode": "continuous",
+      "children": [
+        {
+          "id": "cat-09-01",
+          "code": "01",
+          "name": "高献国",
+          "source": "AD7:AD8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": [
+            {
+              "id": "cat-09-01-01",
+              "code": "01",
+              "name": "证件",
+              "source": "AD9:AD10",
+              "enabled": true,
+              "mode": "continuous",
+              "children": []
+            },
+            {
+              "id": "cat-09-01-02",
+              "code": "02",
+              "name": "借贷纠纷资料",
+              "source": "AE9:AE10",
+              "enabled": true,
+              "mode": "continuous",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "cat-09-02",
+          "code": "02",
+          "name": "周三昌",
+          "source": "AF7:AF8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        },
+        {
+          "id": "cat-09-03",
+          "code": "03",
+          "name": "高峰",
+          "source": "AG7:AG8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "cat-10",
+      "code": "10",
+      "name": "客商类",
+      "source": "AH5:AH6",
+      "enabled": true,
+      "mode": "continuous",
+      "children": [
+        {
+          "id": "cat-10-01",
+          "code": "01",
+          "name": "办公家具",
+          "source": "AH7:AH8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "cat-11",
+      "code": "11",
+      "name": "法务类",
+      "source": "AI5:AI6",
+      "enabled": true,
+      "mode": "continuous",
+      "children": []
+    },
+    {
+      "id": "cat-12",
+      "code": "12",
+      "name": "企业文化类",
+      "source": "AJ5:AJ6",
+      "enabled": true,
+      "mode": "continuous",
+      "children": [
+        {
+          "id": "cat-12-01",
+          "code": "01",
+          "name": "企宣类",
+          "source": "AJ7:AJ8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "cat-13",
+      "code": "13",
+      "name": "申报类",
+      "source": "AK5:AK6",
+      "enabled": true,
+      "mode": "continuous",
+      "children": [
+        {
+          "id": "cat-13-01",
+          "code": "01",
+          "name": "评审报告",
+          "source": "AK7:AK8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "cat-15",
+      "code": "15",
+      "name": "移动电信类",
+      "source": "AL5:AL6",
+      "enabled": true,
+      "mode": "continuous",
+      "children": [
+        {
+          "id": "cat-15-01",
+          "code": "01",
+          "name": "视频监控类",
+          "source": "AL7:AL8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "cat-16",
+      "code": "16",
+      "name": "计划总结类",
+      "source": "AM5:AM6",
+      "enabled": true,
+      "mode": "continuous",
+      "children": [
+        {
+          "id": "cat-16-01",
+          "code": "01",
+          "name": "企管中心",
+          "source": "AM7:AM8",
+          "enabled": true,
+          "mode": "continuous",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "cat-17",
+      "code": "17",
+      "name": "产品标准类",
+      "source": "AN5:AN6",
+      "enabled": true,
+      "mode": "continuous",
+      "children": []
+    },
+    {
+      "id": "cat-18",
+      "code": "18",
+      "name": "专利类",
+      "source": "AO5:AO6",
+      "enabled": true,
+      "mode": "continuous",
+      "children": []
+    },
+    {
+      "id": "cat-19",
+      "code": "19",
+      "name": "商标类",
+      "source": "AP5:AP6",
+      "enabled": true,
+      "mode": "unresolved",
+      "children": []
+    },
+    {
+      "id": "cat-20",
+      "code": "20",
+      "name": "合同类",
+      "source": "AQ5:AQ6",
+      "enabled": true,
+      "mode": "year",
+      "children": []
+    },
+    {
+      "id": "cat-21",
+      "code": "21",
+      "name": "资质证书类",
+      "source": "AR5:AR6",
+      "enabled": true,
+      "mode": "continuous",
+      "children": []
+    },
+    {
+      "id": "cat-22",
+      "code": "22",
+      "name": "会议纪要类",
+      "source": "AS5:AS6",
+      "enabled": true,
+      "mode": "continuous",
+      "children": []
+    },
+    {
+      "id": "cat-23",
+      "code": "23",
+      "name": "收文类",
+      "source": "AT5:AT6",
+      "enabled": true,
+      "mode": "year",
+      "children": []
+    },
+    {
+      "id": "cat-24",
+      "code": "24",
+      "name": "发文类",
+      "source": "AU5:AU6",
+      "enabled": true,
+      "mode": "year",
+      "children": []
+    },
+    {
+      "id": "cat-25",
+      "code": "25",
+      "name": "项目类",
+      "source": "AV5:AV6",
+      "enabled": true,
+      "mode": "continuous",
+      "children": []
+    }
+  ],
+  "records": []
+}

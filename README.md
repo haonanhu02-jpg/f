@@ -89,4 +89,3 @@ npm run dev
 现行编号格式已确认：GF-ZZ-001、GF-WS-01-01-001、GF-WS-20-2026-001，年份由录入人选择归档年份。正式档案可以修改保管等信息；归属、分类与年份锁定；作废保留原号且不复用。
 
 权限、日志、提醒和统计详见[第五阶段完成清单](docs/phase-5/README.md)及[第五阶段API](docs/phase-5/API.md)。附件和Excel操作见[第四阶段说明](docs/phase-4/README.md)，登记编号见[第三阶段说明](docs/phase-3/README.md)，运行配置见[后端说明](backend/README.md)。
-

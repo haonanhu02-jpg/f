@@ -1,0 +1,39 @@
+services:
+  app:
+    image: ${ARCHIVE_IMAGE:?Use the deployment script to build an image first}
+    pull_policy: never
+    init: true
+    restart: unless-stopped
+    user: "1000:1000"
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - "${ARCHIVE_BIND_IP:-0.0.0.0}:${ARCHIVE_HTTP_PORT:-8080}:8080"
+    environment:
+      ARCHIVE_ALLOWED_ORIGINS: ${ARCHIVE_ALLOWED_ORIGINS:?Set the actual website origin}
+      ARCHIVE_COOKIE_SECURE: ${ARCHIVE_COOKIE_SECURE:-0}
+      ARCHIVE_TRUST_PROXY: ${ARCHIVE_TRUST_PROXY:-0}
+    volumes:
+      - data:/data
+      - backups:/backups
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8080/api/health').then(async r=>{const d=await r.json();if(!r.ok||d.data?.ok!==true||d.data.schemaVersion!==3)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+    stop_grace_period: 75s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  data:
+  backups:

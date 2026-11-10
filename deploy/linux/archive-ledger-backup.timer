@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily Archive Ledger Backup
+
+[Timer]
+# Proposed operational default: 02:00 Asia/Shanghai, no automatic deletion.
+OnCalendar=*-*-* 02:00:00 Asia/Shanghai
+Persistent=true
+RandomizedDelaySec=5m
+
+[Install]
+WantedBy=timers.target

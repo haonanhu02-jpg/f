@@ -1,0 +1,30 @@
+# Replace archives.example.invalid and certificate locations before enabling.
+server {
+    listen 80;
+    server_name archives.example.invalid;
+    return 308 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name archives.example.invalid;
+    ssl_certificate /etc/nginx/tls/archive-ledger/fullchain.pem;
+    ssl_certificate_key /etc/nginx/tls/archive-ledger/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    client_max_body_size 21m;
+    access_log /var/log/nginx/archive-ledger.access.log;
+    error_log /var/log/nginx/archive-ledger.error.log;
+    # Do not cache authenticated API responses or files.
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Connection "";
+        proxy_read_timeout 75s;
+        proxy_send_timeout 75s;
+        proxy_cache off;
+        proxy_request_buffering off;
+    }
+}
