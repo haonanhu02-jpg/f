@@ -6,9 +6,9 @@
 bash /home/wsgfai/update-archive.sh
 ```
 
-脚本从 haonanhu02-jpg/f 的main分支拉取。首次克隆到 /home/wsgfai/f；后续在同一目录执行 git pull --ff-only。优先尝试GitClone镜像，失败后尝试GitHub原站；每个地址默认3次。使用单次Git配置解决仓库属主检查及HTTP/1.1连接，不修改服务器全局Git配置。本地源码有未提交修改或当前分支不符时停止，不覆盖修改。
+脚本从 haonanhu02-jpg/f 的main分支拉取。首次克隆到 /home/wsgfai/f；后续在同一目录执行 git pull --ff-only。依次尝试GitHub原站、GHFast加速地址、GitClone镜像；每个地址默认最多2次，单次Git拉取最多30秒。遇到502/503/504立即切换，不反复等待同一故障站。可用GIT_URLS指定企业内网可用的代码源，GIT_TIMEOUT调整超时。使用单次Git配置解决仓库属主检查及HTTP/1.1连接，不修改服务器全局Git配置。本地源码有未提交修改或当前分支不符时停止，不覆盖修改。
 
-代码更新后，按多个Node镜像源和npm源构建，再用项目已有Compose配置启动。默认端口8080；可用 HTTP_PORT=9000 PUBLIC_URL=http://实际IP:9000 bash /home/wsgfai/update-archive.sh 指定其他端口和地址。需要服务器已有Docker Engine、Compose插件、Git、curl、Python3和常见Linux工具。
+代码更新后，按多个Node镜像源和npm源构建，再用项目已有Compose配置启动。默认端口5000；可用 HTTP_PORT=9000 PUBLIC_URL=http://实际IP:9000 bash /home/wsgfai/update-archive.sh 指定其他端口和地址。需要服务器已有Docker Engine、Compose插件、Git、curl、Python3和常见Linux工具。
 
 成功前检查容器健康状态、API及实际网站页面，成功后输出网址。失败输出 /home/wsgfai/archive-logs/本次编号 和 failure.log前30行；完整命令及容器日志保留在该目录。不会自动创建/home/wsgfai，若启动目录不存在则提示错误。
 
@@ -16,4 +16,4 @@ SQLite与附件继续使用同一个 archive-ledger_data 命名卷，备份使�
 
 原deploy.sh使用版本源码目录，仍保留；本脚本是固定目录的另一入口。两种方式选一种运行，不要同时部署同一项目。截图中其他项目的地址和Compose配置不适用于本项目。
 
-验证：Bash语法检查和7组Linux测试通过，测试使用真实本地Git仓库验证首次克隆、快速更新、本地修改保留和目录保护；Docker与HTTP行为由模拟命令覆盖，不代表已经在目标服务器完成真实容器构建启动。
+验证：Bash语法检查和9组Linux测试通过，测试使用真实本地Git仓库验证首次克隆、快速更新、本地修改保留和目录保护；Docker与HTTP行为由模拟命令覆盖，不代表已经在目标服务器完成真实容器构建启动。

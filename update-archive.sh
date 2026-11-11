@@ -7,12 +7,13 @@ BASE_DIR=${BASE_DIR:-/home/wsgfai}
 APP_DIR=${APP_DIR:-$BASE_DIR/f}
 BRANCH=${BRANCH:-main}
 PROJECT=archive-ledger
-HTTP_PORT=${HTTP_PORT:-8080}
+HTTP_PORT=${HTTP_PORT:-5000}
 PUBLIC_URL=${PUBLIC_URL:-}
 GITHUB_URL=https://github.com/haonanhu02-jpg/f.git
 MIRROR_URL=https://gitclone.com/github.com/haonanhu02-jpg/f.git
 RUN_ID=$(date -u +%Y%m%dT%H%M%SZ)-$$
-RETRIES=${RETRIES:-3}
+RETRIES=${RETRIES:-2}
+GIT_TIMEOUT=${GIT_TIMEOUT:-30}
 HEALTH_TIMEOUT=${HEALTH_TIMEOUT:-120}
 export GIT_TERMINAL_PROMPT=0
 
@@ -64,12 +65,13 @@ die() { REASON=$1; echo "$REASON" >&2; exit 1; }
 run() { local name=$1; shift; LAST_LOG="$LOG_DIR/$name.log"; "$@" 2>&1 | tee "$LAST_LOG"; }
 git_app() { git -c "safe.directory=$APP_DIR" -c http.version=HTTP/1.1 -C "$APP_DIR" "$@"; }
 
-for tool in git docker curl python3 timeout flock; do command -v "$tool" >/dev/null || die "缺少命令：$tool"; done
-python3 - "$HTTP_PORT" "$RETRIES" "$HEALTH_TIMEOUT" "$APP_DIR" "$BASE_DIR" <<'PY'
+for tool in git docker curl python3 timeout flock grep; do command -v "$tool" >/dev/null || die "缺少命令：$tool"; done
+python3 - "$HTTP_PORT" "$RETRIES" "$HEALTH_TIMEOUT" "$APP_DIR" "$BASE_DIR" "$GIT_TIMEOUT" <<'PY'
 import sys
-port,retries,health,app,base=sys.argv[1:]
+port,retries,health,app,base,git_timeout=sys.argv[1:]
 assert port.isdigit() and 1<=int(port)<=65535,'端口必须是1—65535'
 assert retries.isdigit() and int(retries)>0 and health.isdigit() and int(health)>0,'重试次数和超时必须为正整数'
+assert git_timeout.isdigit() and int(git_timeout)>0,'Git超时必须为正整数'
 assert app.startswith(base+'/') and app!=base,'项目目录必须是启动目录的子目录'
 PY
 git check-ref-format --branch "$BRANCH" >/dev/null
@@ -85,28 +87,38 @@ echo '========== 开始部署档案台账系统 =========='
 echo "启动目录：$BASE_DIR"
 echo "代码目录：$APP_DIR"
 STAGE=拉取代码
+if [[ -n ${GIT_URLS:-} ]]; then
+  read -r -a git_urls <<<"$GIT_URLS"
+else
+  git_urls=("$GITHUB_URL" "https://ghfast.top/$GITHUB_URL" "$MIRROR_URL")
+fi
+for url in "${git_urls[@]}"; do [[ $url != *'@'* ]] || die '代码源地址不能包含账号密码或令牌。'; done
 if [[ -d $APP_DIR/.git ]]; then
   [[ -z $(git_app status --porcelain) ]] || die '项目有未提交修改，停止更新，请先保留并处理这些修改。'
   [[ $(git_app branch --show-current) == "$BRANCH" ]] || die "当前分支不是$BRANCH，请先核对项目。"
   UPDATED=0
-  for url in "$MIRROR_URL" "$GITHUB_URL"; do
+  for url in "${git_urls[@]}"; do
     for ((n=1;n<=RETRIES;n++)); do
       echo "更新代码，第$n次：$url"
-      if run "pull-$(basename "$url")-$n-${url//\//_}" timeout 120 git \
-        -c "safe.directory=$APP_DIR" -c http.version=HTTP/1.1 -C "$APP_DIR" pull --ff-only "$url" "$BRANCH"; then UPDATED=1; break 2; fi
+      if run "pull-$(basename "$url")-$n-${url//\//_}" timeout "$GIT_TIMEOUT" git \
+        -c "safe.directory=$APP_DIR" -c http.version=HTTP/1.1 -c http.lowSpeedLimit=1024 -c http.lowSpeedTime=15 \
+        -C "$APP_DIR" pull --ff-only "$url" "$BRANCH"; then UPDATED=1; break 2; fi
+      if grep -Eq 'returned error: (502|503|504)' "$LAST_LOG"; then echo '该代码源返回网关错误，立即切换下一代码源。'; break; fi
     done
   done
   (( UPDATED == 1 )) || die '所有代码源更新失败，现有容器保持运行。'
 else
   [[ ! -e $APP_DIR ]] || die "目录已存在但不是Git仓库：$APP_DIR。请先核对，脚本不覆盖该目录。"
   UPDATED=0; attempt=0
-  for url in "$MIRROR_URL" "$GITHUB_URL"; do
+  for url in "${git_urls[@]}"; do
     for ((n=1;n<=RETRIES;n++)); do
       attempt=$((attempt+1))
       echo "首次克隆，第$n次：$url"
-      if run "clone-$attempt" timeout 120 git -c http.version=HTTP/1.1 clone --branch "$BRANCH" --single-branch -- "$url" "$RUN/clone-$attempt"; then
+      if run "clone-$attempt" timeout "$GIT_TIMEOUT" git -c http.version=HTTP/1.1 -c http.lowSpeedLimit=1024 -c http.lowSpeedTime=15 \
+        clone --depth 1 --branch "$BRANCH" --single-branch -- "$url" "$RUN/clone-$attempt"; then
         mv "$RUN/clone-$attempt" "$APP_DIR"; UPDATED=1; break 2
       fi
+      if grep -Eq 'returned error: (502|503|504)' "$LAST_LOG"; then echo '该代码源返回网关错误，立即切换下一代码源。'; break; fi
     done
   done
   (( UPDATED == 1 )) || die '所有代码源克隆失败，现有容器保持运行。'

@@ -14,7 +14,9 @@ if 'clone' in a or 'pull' in a:
  if mode=='git-failed':print('Git network failure',file=sys.stderr);sys.exit(7)
  for i,item in enumerate(a):
   if item.startswith('https://gitclone.com/'):
-   print('Mirror unavailable',file=sys.stderr);sys.exit(7)
+   print('fatal: The requested URL returned error: 502',file=sys.stderr);sys.exit(7)
+  if item.startswith('https://ghfast.top/'):a[i]=os.environ['REMOTE'];continue
+  if item.startswith('https://github.com/') and mode=='primary-failed':print('Connection timed out',file=sys.stderr);sys.exit(124)
   if item.startswith('https://github.com/'):a[i]=os.environ['REMOTE']
 sys.exit(subprocess.call(['/usr/bin/git',*a]))
 '''
@@ -63,5 +65,16 @@ class UpdaterTests(unittest.TestCase):
   self.assertIn('container failure line 28',result.stdout);self.assertNotIn('container failure line 29',result.stdout)
  def test_web_failure_is_not_success(self):
   result,calls=self.run_script('url-failed');self.assertNotEqual(result.returncode,0);self.assertIn('website unavailable',result.stdout)
+ def test_primary_timeout_and_502_mirror_can_use_another_code_source(self):
+  result,calls=self.run_script('primary-failed')
+  self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+  clones=[c for c in calls if c[0]=='git' and 'clone' in c]
+  self.assertTrue(any('https://ghfast.top/' in ' '.join(c) for c in clones))
+ def test_502_source_is_skipped_without_repeating_and_custom_sources_work(self):
+  self.env.update({'GIT_URLS':'https://gitclone.com/github.com/haonanhu02-jpg/f.git https://github.com/haonanhu02-jpg/f.git','RETRIES':'3'})
+  result,calls=self.run_script()
+  self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+  bad=[c for c in calls if 'clone' in c and any(a.startswith('https://gitclone.com/') for a in c)]
+  self.assertEqual(len(bad),1)
 
 if __name__=='__main__':unittest.main(verbosity=2)
