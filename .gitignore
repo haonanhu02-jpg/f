@@ -1,3 +1,5 @@
 /delivery/
 /backups/
 *.log
+__pycache__/
+*.py[cod]
