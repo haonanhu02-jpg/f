@@ -1,4 +1,5 @@
 'use client';
+import { createId } from './id';
 import { useState, type FormEvent } from 'react';
 import { Plus, Building2, Search } from 'lucide-react';
 import { type Workspace, type Company, type Department } from './model';
@@ -33,7 +34,7 @@ export default function CompanyAdmin({ state, save, saving }: { state: Workspace
     if (await save({ ...state, departments: exists ? state.departments.map(d => d.id === normalized.id ? normalized : d) : [...state.departments, normalized] }, '部门资料已保存到本机。')) setDepartment(null);
   }
   return <>
-    <div className="page-heading"><div><div className="eyebrow">基础管理</div><h1>公司与部门</h1><p>维护所属公司、部门，以及文书目录的适用范围。</p></div><button className="button primary" onClick={() => { setError(''); tab === 'companies' ? setCompany({ id: crypto.randomUUID(), name: '', code: null, shortName: '', enabled: true, categoryEnabled: false }) : setDepartment({ id: crypto.randomUUID(), companyId: departmentCompany || state.companies.find(c => c.enabled)?.id || '', name: '', enabled: true }); }}><Plus size={16}/>{tab === 'companies' ? '新增公司' : '新增部门'}</button></div>
+    <div className="page-heading"><div><div className="eyebrow">基础管理</div><h1>公司与部门</h1><p>维护所属公司、部门，以及文书目录的适用范围。</p></div><button className="button primary" onClick={() => { setError(''); tab === 'companies' ? setCompany({ id: createId(), name: '', code: null, shortName: '', enabled: true, categoryEnabled: false }) : setDepartment({ id: createId(), companyId: departmentCompany || state.companies.find(c => c.enabled)?.id || '', name: '', enabled: true }); }}><Plus size={16}/>{tab === 'companies' ? '新增公司' : '新增部门'}</button></div>
     <div className="metric-strip"><div><strong>{state.companies.length}</strong><span>公司主体</span></div><div><strong>{state.companies.filter(c => !c.code).length}</strong><span>编码待补</span></div><div><strong>{state.departments.length}</strong><span>已维护部门</span></div></div>
     <section className="panel"><div className="tabs" role="tablist" aria-label="公司与部门"><button role="tab" aria-selected={tab === 'companies'} onClick={() => { setTab('companies'); setQuery(''); }}>公司目录</button><button role="tab" aria-selected={tab === 'departments'} onClick={() => { setTab('departments'); setQuery(''); }}>部门目录</button></div>
       <div className="toolbar"><div className="search-input"><Search size={16}/><input aria-label="搜索公司或部门" value={query} onChange={e => setQuery(e.target.value)} placeholder={tab === 'companies' ? '搜索公司名称、简称或编码' : '搜索部门名称'}/></div>{tab === 'departments' && <select aria-label="部门所属公司筛选" value={departmentCompany} onChange={e => setDepartmentCompany(e.target.value)}><option value="">全部公司</option>{state.companies.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}</select>}</div>

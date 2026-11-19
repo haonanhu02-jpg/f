@@ -1,3 +1,4 @@
+import { createId } from './id';
 import { z } from 'zod';
 
 export const companySchema = z.object({ id: z.string(), name: z.string().min(1), code: z.string().nullable(), shortName: z.string(), enabled: z.boolean(), categoryEnabled: z.boolean() });
@@ -51,7 +52,7 @@ export function updateCategory(categories: Category[], id: string, update: (node
   return categories.map(node => node.id === id ? update(node) : { ...node, children: updateCategory(node.children, id, update) });
 }
 export function createDraft(companyId: string, group: ArchiveRecord['group'] = 'document'): ArchiveRecord {
-  return { id: crypto.randomUUID(), companyId, group, categoryIds: [], title: '', certificateNumber: '', issuingAuthority: '', issuedOn: '', originalCount: null, copyCount: null, scanCount: null, validityMode: group === 'document' ? 'na' : 'unknown', validFrom: '', validUntil: '', transferPerson: '', departmentId: '', confidentialityLevel: '', retentionMode: 'unknown', retentionFrom: '', retentionUntil: '', storageLocation: '', remarks: '', numberingYear: '', isExample: false, updatedAt: new Date().toISOString(), status: 'draft', archiveNumber: null, recordVersion: 0, voidReason: '', warnings: [] };
+  return { id: createId(), companyId, group, categoryIds: [], title: '', certificateNumber: '', issuingAuthority: '', issuedOn: '', originalCount: null, copyCount: null, scanCount: null, validityMode: group === 'document' ? 'na' : 'unknown', validFrom: '', validUntil: '', transferPerson: '', departmentId: '', confidentialityLevel: '', retentionMode: 'unknown', retentionFrom: '', retentionUntil: '', storageLocation: '', remarks: '', numberingYear: '', isExample: false, updatedAt: new Date().toISOString(), status: 'draft', archiveNumber: null, recordVersion: 0, voidReason: '', warnings: [] };
 }
 export function validateDraft(record: ArchiveRecord, state: Workspace): string | null {
   if(!record.confidentialityLevel&&!state.capabilities.unclassified)return '当前账号未获未定密档案授权，请选择已授权的秘密等级。';

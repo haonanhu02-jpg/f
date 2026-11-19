@@ -59,6 +59,7 @@ python -X utf8 scripts/verify-phase3.py
 python -X utf8 scripts/verify-phase4.py
 python -X utf8 scripts/verify-phase5.py
 python -X utf8 scripts/verify-phase6.py
+python -X utf8 scripts/verify-buttons.py
 ```
 
 浏览器脚本需要Python Playwright及本机已有Chromium，使用独立临时API及数据库，不写入3001端口的实际工作库。截图与验收报告在忽略跟踪的`outputs/`。旧verify-phase2.py保留为历史参考，不适用于当前版本。
@@ -68,6 +69,8 @@ python -X utf8 scripts/verify-phase6.py
 第五阶段通过8组浏览器验收，第三阶段11组与第四阶段8组回归也已通过。账号初始化、角色规则、日志与分析见[第五阶段完成清单](../docs/phase-5/README.md)及[第五阶段API](../docs/phase-5/API.md)。测试不会建立实际工作账号或预置实际秘密等级。
 
 ## 生产构建
+
+普通HTTP内网访问的按钮兼容修复和验收结果见[按钮验收记录](../docs/phase-6/按钮验收.md)。verify-buttons.py以非localhost域名启动独立生产页面，验证新增、维护、文件操作和导航，不依赖安全环境下的randomUUID。
 
 执行 npm run build:production 生成 dist-production/，入口为 production/main.tsx，复用 features/archive/ 与 app/globals.css。由独立Node服务托管静态文件和API，经Nginx提供HTTPS。保留原Vinext/Sites开发构建配置；Linux交付不依赖Cloudflare或Sites模拟登录。
 
